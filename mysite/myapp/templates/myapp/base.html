@@ -11,22 +11,24 @@
 </head>
 <body>
     <header>
-        <img class="logo" alt = "logo" src="{% static "/img/logo.png"%}">
+        <a href="http://127.0.0.1:8000/"><img class="logo" alt = "base" src="{% static "/img/logo.png"%}"></a>          <!--PRI NASAZENI SE MUSI ZMENIT LINK HREF-->
         <nav>
             <ul class="links">
-                  <li><a href="#">Firmy</a></li>
-                  <li><a href="#">Žáci</a></li>
-                  <li><a href="#">Učebny</a></li>
-                  <li><a href="#">Admin</a></li>
+                  <li><a href="/firmy/">Firmy</a></li>
+                  <li><a href="/zaci/">Žáci</a></li>
+                  <li><a href="/ucebny/">Učebny</a></li>
+                  <li><a href="/admin/">Admin</a></li>
             </ul>
         </nav>
     </header>
 
     <div id="container">
         <div id="main">
+            {% block message %}
             <h2 id = "main-text">
-                WEBOVÁ APLIKACE PRO SPRÁVU DNE FIREM - MAIN
+                WEBOVÁ APLIKACE PRO SPRÁVU DNE FIREM - BASE
             </h2>
+            {% endblock %}
         </div>
     </div>
 

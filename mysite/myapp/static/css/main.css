@@ -79,3 +79,9 @@ html, body {
     color: white;
     text-align: center;
 }
+
+.bubble {
+    background-color: white;
+    width: 200px;
+    height: 200px;
+}

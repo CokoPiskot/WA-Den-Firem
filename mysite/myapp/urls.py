@@ -18,9 +18,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.index, name="main"),
-    path("", views.redirect_admin, name="admin")
+    path("", views.index, name="base"),
+    path('firmy/', views.firmy, name="firmy"),
+    path('zaci/', views.zaci, name="zaci"),
+    path('ucebny/', views.ucebny, name="ucebny"),
 ]

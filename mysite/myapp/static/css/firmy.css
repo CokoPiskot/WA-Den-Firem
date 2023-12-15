@@ -1,0 +1,12 @@
+{% extends 'myapp/main.css' %}
+
+#bubble {
+    background-color: white;
+    width: 400px;
+    height: 200px;
+    border: solid grey 1px;
+    border-radius: 10px;
+    position: relative;
+    margin-left: 200px;
+    padding: 3px;
+}

@@ -1,4 +1,11 @@
 {% extends 'myapp/base.html' %}
+{% load static %}
+
+
+{% block stylesheet %}
+{{ block.super }}
+    <link rel="stylesheet" href="{% static "/css/firmy.css"%}">
+{% endblock %}
 
 {% block message %}
     <h2 id = "main-text">
@@ -6,7 +13,7 @@
     </h2>
 
     <div id="bubble">
-        <a>Název firmy</a>
+        <a>Název firmy: </a>
         <input type="text" id="nazev-firmy">
         <select multiple name="technické obory" id="technicke-obory-dropdown">
             <option value="Informační technologie">Informační technologie</option>
@@ -20,6 +27,7 @@
             <option value="Sociální činnost">Sociální činnost</option>
             <option value="Ekonomika a podnikání">Ekonomika a podnikání</option>
         </select>
+        <br>
         <input type="submit" value="Přidat firmu" id="pridat-firmu">
     </div>
 {% endblock %}

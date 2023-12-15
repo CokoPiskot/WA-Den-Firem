@@ -4,10 +4,14 @@
 <html lang="en">
 <head>
     <!--suppress HtmlUnknownTarget -->
-    <link rel="stylesheet" href="{% static "/css/main.css"%}">
+    {% block stylesheet %}
+        <link rel="stylesheet" href="{% static "/css/main.css"%}">
+    {% endblock %}
+
     <meta charset="UTF-8">
     <title>Purkyňka - den firem</title>
     <link rel="icon" type="image/x-icon" href="{% static "/img/icon.png"%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <header>

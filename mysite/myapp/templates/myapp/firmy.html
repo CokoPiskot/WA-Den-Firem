@@ -13,21 +13,10 @@
     </h2>
 
     <div id="bubble">
-        <a>Název firmy: </a>
-        <input type="text" id="nazev-firmy">
-        <select multiple name="technické obory" id="technicke-obory-dropdown">
-            <option value="Informační technologie">Informační technologie</option>
-            <option value="Průmyslová ekologie">Průmyslová ekologie</option>
-            <option value="Elektrotechnika">Elektrotechnika</option>
-            <option value="Elektrikář">Elektrikář</option>
-            <option value="Elektromechanik pro zařízení a přistroje">Elektromechanik pro zařízení a přistroje</option>
-            <option value="Mechanik elektrotechnik">Mechanik a elektrotechnik</option>
-        </select>
-        <select multiple name="soc. a eko. obory" id="soc-eko-obory-dropdown">
-            <option value="Sociální činnost">Sociální činnost</option>
-            <option value="Ekonomika a podnikání">Ekonomika a podnikání</option>
-        </select>
-        <br>
-        <input type="submit" value="Přidat firmu" id="pridat-firmu">
+        <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit">
+        </form>
     </div>
 {% endblock %}

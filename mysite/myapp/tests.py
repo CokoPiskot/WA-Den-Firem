@@ -3,37 +3,30 @@ from django.test import TestCase
 # Create your tests here.
 
 
-from itertools import combinations
+import itertools
 
-def find_combinations(companies, target_hours):
-    for r in range(1, len(companies) + 1):      #prochazí všechny
-        for combination in combinations(companies, r):
-            if sum(company["hours"] for company in combination) == target_hours:
-                yield combination   #toto je takový print akorát return :D, dokáže postupně vracet všechny hodnoty
 
-def main():                         #vytvoření seznamu který obsahu slovníky firem {nazev firmy, pozadovane trvani prednasky firmy}
+def find_combinations(companies, length_of_event):
+    for i in range(2, len(companies) + 1):                          #procházím "počet firem" na základě čísla i bude počet firem v dané kombinaci
+        for combination in itertools.combinations(companies, i):    #prochazím všechny možné kombinace, atribut1 = z čeho kombinace dělám, atribut2 = kolik prvků (firem) bude v dané kombinaci
+            total_hours = 0                                         #pomocná proměnná
+            for company in combination:                             #procházím firmy v kombinacích
+                total_hours += company["company_time"]              #přičítám čas dané firmy do pomocné proměnné, tak zjistím zda-li se to vejde do dne firem či ne
+            if total_hours == length_of_event:                      #pokud časy všech firem == trvání dnu firem tak vypiš danou kombinaci
+                print(combination)
+
+
+def main():
+    length_of_event = 4
     companies = [
-        {"name": "NOTINO", "hours": 1},
-        {"name": "AČR", "hours": 1},
-        {"name": "2K GAMES", "hours": 2},
-        {"name": "REDHAT", "hours": 1},
-        {"name": "PLANTIFUL", "hours": 2},
-        {"name": "KYNDRYL", "hours": 2},
+        {"company_name": "NOTINO", "company_time": 1},
+        {"company_name": "AČR", "company_time": 1},
+        {"company_name": "2K GAMES", "company_time": 2},
+        {"company_name": "REDHAT", "company_time": 1},
+        {"company_name": "PLANTIFUL", "company_time": 2},
+        {"company_name": "KYNDRYL", "company_time": 2},
     ]
 
-    target_hours = 4                #kolik hodin je potreba zaplnit
+    find_combinations(companies, length_of_event)
 
-    found_combinations = list(find_combinations(companies, target_hours))
-
-    if found_combinations:
-        print("Nalezeny kombinace:")
-        for i, combination in enumerate(found_combinations, start=1):
-            print(f"Kombinace {i}: {', '.join(company['name'] for company in combination)}")
-    else:
-        print("Není možné najít kombinaci.")
-
-if __name__ == "__main__":
-    main()
-
-
-#TESTOVÁNÍ BRUTE-FORCE ROZŘAROVÁNÍ FIREM NA BLOKY
+main()

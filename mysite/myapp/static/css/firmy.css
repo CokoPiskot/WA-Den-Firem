@@ -1,12 +1,151 @@
 {% extends 'myapp/main.css' %}
 
-#bubble {
+.bubble {
     background-color: white;
-    width: 400px;
-    height: 200px;
-    border: solid grey 1px;
+    width: 800px;
+    height: 350px;
+    border: solid rgb(62, 97, 200) 3px;
     border-radius: 10px;
     position: relative;
     margin-left: 200px;
     padding: 3px;
+    display: inline-block;
+}
+
+#searchbar-firma-bubble {
+    position: absolute;
+    width: 800px;
+    height: 70px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.search-input {
+    height: 100%;
+    width: 80%;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    color: white;
+    placeholder-color: white;
+    border: solid rgb(62, 97, 200) 3px;
+    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.3));;
+}
+
+.bubble-firmy {
+    background-color: white;
+    width: 1500px;
+    height: 70px;
+    border: solid rgb(62, 97, 200) 3px;
+    border-radius: 10px;
+    position: relative;
+    margin-left: 200px;
+    padding: 3px;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.a-firmy {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: rgb(62, 97, 200);
+    text-decoration: none;
+}
+
+.danger-zone {
+    margin-left: auto;
+    height: 100%;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+
+
+.modify-button {
+  align-items: center;
+  background-color: rgb(62, 97, 200);
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  font-family: "Montserrat", sans-serif;
+  flex-shrink: 0;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 10px 21px;
+  text-align: center;
+  text-transform: none;
+  transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.modify-button:active {
+  background-color: rgb(62, 97, 200);
+}
+
+.modify-button:hover {
+  background-color:rgb(64, 173, 93);
+}
+
+.remove-button {
+  align-items: center;
+  background-color: darkred;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 10px 21px;
+  text-align: center;
+  text-transform: none;
+  transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.remove-button:active {
+  background-color: darkred;
+}
+
+.remove-button:hover {
+  background-color:red;
+}
+
+.bubble:hover {
+    border: solid rgb(64, 173, 93) 3px;
+}
+.bubble-firmy:hover {
+    transform: scale(1.1);
+    border: solid rgb(64, 173, 93) 3px;
+}
+
+.search-input:hover {
+    border: solid rgb(64, 173, 93) 3px;
+}
+
+
+::placeholder {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 32px;
 }

@@ -26,4 +26,5 @@ urlpatterns = [
     path('firmy/', views.firmy, name="firmy"),
     path('zaci/', views.zaci, name="zaci"),
     path('ucebny/', views.ucebny, name="ucebny"),
+    path('delete_item/<int:item_id>/', views.delete_item, name='delete-item'),
 ]

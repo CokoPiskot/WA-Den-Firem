@@ -17,13 +17,13 @@
             <form method="POST" action="">
             {% csrf_token %}    <!--bezpecnosti opatreni-->
             {{ form.as_p }}     <!--vypisovani formularu podle forms.py-->
-            <input type="submit">
+            <input type="submit" value="PŘIDAT" class="add-button">
             </form>
         </div>
         <div id="searchbar-firma-bubble">
             <input type="text" placeholder="Zadejte název firmy" class="search-input">
             <br>
-             <a class="a-modify-button" href=''><button class="modify-button">VYHLEDAT</button></a>
+            <a class="a-modify-button" href=''><button type="submit" class="modify-button">VYHLEDAT</button></a>
         </div>
     </div>
     <br>

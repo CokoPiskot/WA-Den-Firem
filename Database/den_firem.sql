@@ -326,6 +326,7 @@ INSERT INTO `myapp_firmy` (`id_firmy`, `nazev_firmy`, `o_firme`, `nazev_prezenta
 CREATE TABLE `myapp_obory` (
   `id_oboru` int(11) NOT NULL,
   `nazev_oboru` varchar(45) NOT NULL
+  `zkratka_oboru` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 --

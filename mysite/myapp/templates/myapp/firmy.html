@@ -17,6 +17,9 @@
             <form method="POST" action="">
             {% csrf_token %}    <!--bezpecnosti opatreni-->
             {{ form.as_p }}     <!--vypisovani formularu podle forms.py-->
+            <div>
+                <a>Vybrat obory</a>
+            </div>
             <input type="submit" value="PŘIDAT" class="add-button">
             </form>
         </div>

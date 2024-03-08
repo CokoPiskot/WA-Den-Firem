@@ -1,5 +1,7 @@
 from django.db import models
 from django import forms
+from multiselectfield import MultiSelectField
+
 
 # Create your models here.
 
@@ -24,6 +26,7 @@ class Firmy(models.Model):
     nazev_firmy = models.CharField("Název firmy", max_length=45)
     o_firme = models.CharField("O firmě", max_length=100)
     nazev_prezentace = models.CharField("Název přednášky", max_length=100)
+    obory = models.ManyToManyField('Obory', related_name='firmy', blank=True)
 
     def __str__(self):
         return f"{self.nazev_firmy} --- ID: {self.id_firmy}"

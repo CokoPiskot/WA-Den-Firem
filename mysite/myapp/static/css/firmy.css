@@ -1,6 +1,13 @@
 {% extends 'myapp/main.css' %}
 
 
+p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+}
+
 .bubble {
     background-color: white;
     width: 800px;
@@ -127,6 +134,32 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+    width: 174px;
+}
+
+.add-button-2 {
+  align-items: center;
+  background-color: rgb(62, 97, 200);
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  font-family: "Montserrat", sans-serif;
+  flex-shrink: 0;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 10px 21px;
+  text-align: right;
+  text-transform: none;
+  transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 .modify-button:active {
@@ -162,17 +195,30 @@
   touch-action: manipulation;
 }
 
-.remove-button:active {
-  background-color: darkred;
+#add-firma-bubble input[type="submit"].add-button:hover {
+    background-color: rgb(64, 173, 93);
+    color: white;
 }
 
 .remove-button:hover {
   background-color:red;
 }
 
+
+.add-button:hover {
+    background-color: rgb(64, 173, 93);
+    color: white;
+}
+
+.add-button-2:hover {
+    background-color: rgb(64, 173, 93);
+    color: white;
+}
+
 .bubble:hover {
     border: solid rgb(64, 173, 93) 3px;
 }
+
 .bubble-firmy:hover {
     transform: scale(1.1);
     border: solid rgb(64, 173, 93) 3px;
@@ -188,3 +234,29 @@
     font-weight: 500;
     font-size: 32px;
 }
+
+        /* Your custom styles go here */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }

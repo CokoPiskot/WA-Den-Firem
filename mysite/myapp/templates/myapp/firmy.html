@@ -9,26 +9,36 @@
 {% endblock %}   <!--konec definicniho tagu-->
 
 {% block message %}     <!--tag definujici blok kodu (html) ktery je prepisovatelny dalsimi templaty-->
-    <h2 id = "main-text">
-      WEBOVÁ APLIKACE PRO SPRÁVU DNE FIREM - FIRMY
-    </h2>
+    <br>
+    <br>
+    <script src="script.js"></script>
     <div id="control-panel">
         <div id="add-firma-bubble" class="bubble">
             <form method="POST" action="">
             {% csrf_token %}    <!--bezpecnosti opatreni-->
             {{ form.as_p }}     <!--vypisovani formularu podle forms.py-->
-            <div>
-                <a>Vybrat obory</a>
-            </div>
-            <input type="submit" value="PŘIDAT" class="add-button">
+            <div class="dropdown">
+                    <button onclick="toggleDropdown()" class="add-button-2">VYBRAT OBORY</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <!-- Your dropdown options go here -->
+                        <a href="#">Option 1</a>
+                        <a href="#">Option 2</a>
+                        <a href="#">Option 3</a>
+                    </div>
+                </div>
+                <br>
+            <input type="submit" value="        PŘIDAT" class="add-button">
             </form>
         </div>
+        <!--
         <div id="searchbar-firma-bubble">
             <input type="text" placeholder="Zadejte název firmy" class="search-input">
             <br>
             <a class="a-modify-button" href=''><button type="submit" class="modify-button">VYHLEDAT</button></a>
         </div>
+        -->
     </div>
+
     <br>
     <div>
         {% for firma in firmy %}    <!--cyklus prochazejici firmy-->
@@ -45,3 +55,4 @@
         {% endfor %}    <!--preruseni cykly, takovy break-->
     </div>
 {% endblock %}  <!--konec definicniho tagu-->
+

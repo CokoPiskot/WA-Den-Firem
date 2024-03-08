@@ -17,4 +17,7 @@ class FormularFirmy(ModelForm):
             "o_firme": forms.TextInput(attrs={"class": "search-input-2"})
         }
 
+        obory = ["nazev_oboru"]
+        dropdown_field = forms.ChoiceField(choices=obory, label='Dropdown Field')
+
 

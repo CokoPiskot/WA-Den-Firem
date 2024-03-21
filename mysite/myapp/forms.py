@@ -6,12 +6,6 @@ from .models import Firmy, Obory
 Tento soubor slouží k ukládání funkcí co se týče FORMULÁŘŮ (např. přidání firmy)
 """
 
-obory = [
-    ('orange', 'Oranges'),
-    ('cantaloupe', 'Cantaloupes'),
-    ('mango', 'Mangoes'),
-    ('honeydew', 'Honeydews'),
-    ]
 
 class FormularFirmy(ModelForm):
     class Meta:                 #speciálně u djanga
@@ -26,9 +20,8 @@ class FormularFirmy(ModelForm):
 
 class FormularObory(ModelForm):
     class Meta:
-        model = Obory
-        fields = ["nazev_oboru"]
+        obory = forms.ModelMultipleChoiceField(queryset=Obory.objects.all(), widget=forms.CheckboxSelectMultiple,required=False)
 
-        widgets = {
-                "nazev_oboru": forms.Select(choices=obory)
-            }
+
+class RegisterForm(ModelForm):
+    class Meta:

@@ -24,7 +24,7 @@ def firmy(request):
             return HttpResponseRedirect("/firmy")
     else:
         formular_firmy = FormularFirmy
-        if "submitted" in request.GET:   
+        if "submitted" in request.GET:
             sumbitted = True
     return render(request, "myapp/firmy.html", {"form":formular_firmy, "firmy":firmy, "obory":obory})  # renderování stranky firmy
 

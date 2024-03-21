@@ -37,3 +37,9 @@ class Super(models.Model):
     heslo = models.CharField(max_length=45)
     def __str__(self):
         return f"{self.login}"
+
+class Profil(models.Model):
+    email = models.EmailField()
+    heslo = models.CharField(max_length=45)
+    def __str__(self):
+        return f"{self.email}"

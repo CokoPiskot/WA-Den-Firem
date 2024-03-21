@@ -2,10 +2,12 @@ from django.test import TestCase
 
 # Create your tests here.
 
+from models import Obory, Firmy
+
 
 import itertools
 
-
+"""
 def find_combinations(companies, length_of_event):
     for i in range(2, len(companies) + 1):                          #procházím "počet firem" na základě čísla i bude počet firem v dané kombinaci
         for combination in itertools.combinations(companies, i):    #prochazím všechny možné kombinace, atribut1 = z čeho kombinace dělám, atribut2 = kolik prvků (firem) bude v dané kombinaci
@@ -30,3 +32,5 @@ def main():
     find_combinations(companies, length_of_event)
 
 main()
+"""
+

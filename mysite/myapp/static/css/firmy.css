@@ -11,7 +11,7 @@ p {
 .bubble {
     background-color: white;
     width: 800px;
-    height: 350px;
+    height: 450px;
     border: solid rgb(62, 97, 200) 3px;
     border-radius: 10px;
     position: relative;

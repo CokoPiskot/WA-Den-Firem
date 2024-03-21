@@ -17,17 +17,14 @@
             <form method="POST" action="">
             {% csrf_token %}    <!--bezpecnosti opatreni-->
             {{ form.as_p }}     <!--vypisovani formularu podle forms.py-->
-            <div class="dropdown">
-                    <button onclick="toggleDropdown()" class="add-button-2">VYBRAT OBORY</button>
-                    <div id="myDropdown" class="dropdown-content">
-                        <!-- Your dropdown options go here -->
-                        <a href="#">Option 1</a>
-                        <a href="#">Option 2</a>
-                        <a href="#">Option 3</a>
-                    </div>
-                </div>
+                {% for obor in obory %}
+                    <input type="checkbox" id={{ obor.id_oboru }}/> {{ obor.nazev_oboru }} <br>
+                {% endfor %}
+                                    <input type="submit" value="        PŘIDAT" class="add-button">
+
+                
+            </div>
                 <br>
-            <input type="submit" value="        PŘIDAT" class="add-button">
             </form>
         </div>
         <!--

@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from .forms import FormularFirmy
+from .forms import FormularFirmy, FormularObory
 from django.http import HttpResponseRedirect, HttpResponse
-from .models import Firmy
+from .models import Firmy, Obory
 
 
 # Create your views here.
@@ -12,18 +12,21 @@ def index(request):
 
 def firmy(request):
     firmy = Firmy.objects.all()
+    obory = Obory.objects.all()
     sumbitted = False
     if request.method == "POST":
-        formular = FormularFirmy(request.POST)
-        if formular.is_valid():
-            formular.save()
+        formular_firmy = FormularFirmy(request.POST)
+        formular_obory = FormularObory(request.POST)
+        if formular_firmy.is_valid() & formular_obory.is_valid():
+            formular_firmy.save()
+            formular_obory.save()
             sumbitted = True
             return HttpResponseRedirect("/firmy")
     else:
-        formular = FormularFirmy
-        if "submitted" in request.GET:
+        formular_firmy = FormularFirmy
+        if "submitted" in request.GET:   
             sumbitted = True
-    return render(request, "myapp/firmy.html", {"form":formular, "firmy":firmy})  # renderování stranky firmy
+    return render(request, "myapp/firmy.html", {"form":formular_firmy, "firmy":firmy, "obory":obory})  # renderování stranky firmy
 
 def zaci(request):
     return render(request, "myapp/zaci.html", {})   #renderování stranky zaci
@@ -36,3 +39,6 @@ def delete_item(request, item_id):
     item.delete()
     return redirect("/firmy")
 
+def obory(request):
+    form = FormularObory()
+    return render(request, "myapp/firmy.html")

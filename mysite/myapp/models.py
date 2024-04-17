@@ -14,6 +14,7 @@ from multiselectfield import MultiSelectField
         return f"{self.nazev_ucebny}"
 """
 
+
 class Obory(models.Model):
     id_oboru = models.AutoField(primary_key=True)
     nazev_oboru = models.CharField(max_length=100)
@@ -30,6 +31,10 @@ class Firmy(models.Model):
 
     def __str__(self):
         return f"{self.nazev_firmy} --- ID: {self.id_firmy}"
+
+class OboryFirmy(models.Model):
+    id_firmy = models.ForeignKey(Firmy, on_delete=models.CASCADE)
+    id_oboru = models.ForeignKey(Obory, on_delete=models.CASCADE)
 
 
 class Super(models.Model):

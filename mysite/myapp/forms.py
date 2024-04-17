@@ -18,10 +18,3 @@ class FormularFirmy(ModelForm):
             "o_firme": forms.TextInput(attrs={"class": "search-input-2"}),
         }
 
-class FormularObory(ModelForm):
-    class Meta:
-        obory = forms.ModelMultipleChoiceField(queryset=Obory.objects.all(), widget=forms.CheckboxSelectMultiple,required=False)
-
-
-class RegisterForm(ModelForm):
-    class Meta:

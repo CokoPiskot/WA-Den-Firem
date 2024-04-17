@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from .forms import FormularFirmy, FormularObory
+from .forms import FormularFirmy
 from django.http import HttpResponseRedirect, HttpResponse
-from .models import Firmy, Obory
+from .models import Firmy, Obory, OboryFirmy
+
 
 
 # Create your views here.
@@ -16,10 +17,8 @@ def firmy(request):
     sumbitted = False
     if request.method == "POST":
         formular_firmy = FormularFirmy(request.POST)
-        formular_obory = FormularObory(request.POST)
-        if formular_firmy.is_valid() & formular_obory.is_valid():
+        if formular_firmy.is_valid():
             formular_firmy.save()
-            formular_obory.save()
             sumbitted = True
             return HttpResponseRedirect("/firmy")
     else:
@@ -29,16 +28,18 @@ def firmy(request):
     return render(request, "myapp/firmy.html", {"form":formular_firmy, "firmy":firmy, "obory":obory})  # renderování stranky firmy
 
 def zaci(request):
-    return render(request, "myapp/zaci.html", {})   #renderování stranky zaci
+    return render(request, "myapp/rozpis.html", {})   #renderování stranky zaci
 
 def ucebny(request):
     return render(request, "myapp/ucebny.html", {}) #renderování stránky ucebny
 
 def delete_item(request, item_id):
-    item = Firmy.objects.get(id_firmy=item_id)
-    item.delete()
-    return redirect("/firmy")
+    items = OboryFirmy.objects.all()
+    for item_A in items:
+        print(item_A.id, item_A.id_firmy_id, item_A.id_oboru_id)
+        item = Firmy.objects.get(id_firmy=item_A.id_firmy_id)
+        item_A.delete()
+        item.delete()
 
-def obory(request):
-    form = FormularObory()
-    return render(request, "myapp/firmy.html")
+    #item.delete()
+    return redirect("/firmy")

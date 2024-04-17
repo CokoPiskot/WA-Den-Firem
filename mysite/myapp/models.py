@@ -1,7 +1,4 @@
 from django.db import models
-from django import forms
-from multiselectfield import MultiSelectField
-
 
 # Create your models here.
 
